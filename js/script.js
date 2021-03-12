@@ -10,13 +10,30 @@ var y = q.getFullYear();
 var today = new Date(y, m, d);
 
 var answer = document.querySelector('.answer h2');
+var kevinNiklas = document.querySelector('.show-twitch--kevinniklas');
+var miha = document.querySelector('.show-twitch--miha');
+
+var isStreaming = false;
+
+checkAllDates();
 
 
-streamDates.forEach(date => {
-  if (isToday(date)) {
-    answer.innerHTML = 'JA'
+function checkAllDates() {
+  streamDates.forEach(date => {
+    if (isToday(date)) {
+      answer.innerHTML = 'JA'
+      isStreaming = true;
+    }
+  });
+
+  if (!isStreaming) {
+    kevinNiklas.classList.remove('hide');
+    miha.classList.add('hide');
+  } else {
+    kevinNiklas.classList.add('hide');
+    miha.classList.remove('hide');
   }
-});
+}
 
 function isToday(dateParameter) {
   var today = new Date();
