@@ -19,6 +19,10 @@ var isStreaming = false;
 
 checkAllDates();
 
+new Twitch.Player("twitch-embed", {
+  channel: "halbzocken"
+});
+
 
 function checkAllDates() {
   streamDates.forEach(date => {
